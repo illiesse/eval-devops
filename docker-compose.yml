@@ -1,0 +1,18 @@
+version: "3.7"
+services:
+  api:
+    image: api:latest
+    ports:
+      - "5000:5000"
+    links:
+      - mongo
+  myreact:
+    image: myreact:latest
+    ports:
+      - "3000:3000"
+    links:
+      - api
+  mongo:
+    image: mongo
+    ports:
+      - "27017:27017"
